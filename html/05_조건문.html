@@ -8,13 +8,122 @@
 <body>
   <h1>if, else if, else</h1>
   - if 안에 있는 조건식이 참인 경우 해당하는 if문, else if문을 실행 한다. 
-  - 조건문(if, else if)에 모두 해당하지 않으면 else에 있는 statement3이 실행된다. 
-  - else if에는 갯수 제한이 따로 없다.
+  - 조건문(if, else if)에 모두 해당하지 않으면 else에 있는 statement3이 실행된다.
+  - else if에는 갯수 제한이 따로 없다.
 
   <script type="text/javascript">
-    
+    /*
+    if(조건식이 참) {
+        statement 실행
+    } else if(참){
+        statement2 실행
+    } else {
+        statement3 실행
+    }
+    verses
+
+    if() { }
+    if() { }
+     */
+    /*
+    실습1. 83점 일 경우 '해당과목의 학점은 B 입니다.
+    100~90  A 89~80 B 79~70 C, 69~60 D, 59~ F
+     */
+    var score = 83;
+    if(score >= 90 && score <= 100) {
+        console.log('A');
+    } else if(score >= 80 && score <= 89) {
+        console.log('B');
+    } else if(score >= 70 && score <= 79) {
+        console.log('C');
+    } else if(score >= 60 && score <= 69) {
+        console.log('D');
+    } else if(score >= 0 && score <= 59) {
+        console.log('E');
+    }
+
+    var score = 83;
+    var grade = '';
+    if(score >= 90) {
+        grade = 'A';
+    } else if (score >= 80) {
+        grade = 'B';
+    } else if (score >=70) {
+        grade = 'C';
+    } else if (score >=60) {
+        grade = 'D';
+    }else {
+        grade = 'F';
+    }
+
+    var score = 83;
+    var grade = '';
+    var result = '';
+    if(score <= 100 && score >= 0) {
+        if(score >= 90) {
+        grade = 'A';
+        } else if (score >= 80) {
+        grade = 'B';
+        } else if (score >=70) {
+        grade = 'C';
+        } else if (score >=60) {
+        grade = 'D';
+        }else {
+        grade = 'F';
+        }
+        // console.log('해당과목의 학점은 '+ grade +' 입니다.');
+        // console.log(`해당과목의 학점은 ${grade} 입니다.`);
+        result = `해당과목의 학점은 ${grade} 입니다.`;
+    } else {
+        // console.log('유효하지 않은 값입니다.');
+        result = '유효하지 않은 값입니다.'
+    }
+        console.log(result);
+
+    /* 실습 2. database, javascript 이수점수가 다릅니다.
+            이수조건 : database(60), javascript(70)
+            database, javascript 점수를 입력 했을시
+            결과로 'database 점수: 56점 fail'
+            결과로 'database 점수: 61점 pass'
+     */
+
+    let databaseScore = 60;
+    let jsScore = 70;
+    var result = '';
+
+if (jsScore >= 61) {
+    if (databaseScore >= 61) {
+        result = `해당과목은 pass 입니다`
+    } else {
+        result = `해당과목은 fail 입니다`
+    }
+    console.log(result);
+}
+    let subject = 'javascript';
+    score = 56;
+    result = 'fail';
+    let print = '';
+
+    if(score <= 100 && score >= 0) {
+        if(subject == 'javascript') {
+            if (score >= 70) result = 'pass';
+        }
+        if (subject == 'database') {
+            if (score >= 60) result = 'pass';
+        }
+        print = `교과: ${subject}, 점수: ${score}점,
+         이수여부: ${result}`;
+    } else {
+        print = '점수를 100~0 까지 입력하세요';
+    }
+    console.log(print);
 
   </script>
+
+<select>
+    <option value="javascript">자바스크립트</option>
+    <option value="database">데이터베이스</option>
+</select>
 
   <h2>switch</h2>
 	- 값 1개를 여러번 동시에 비교(같은 값) 할 수 있는 문장 <br>
@@ -23,7 +132,60 @@
 	- default; -> case의 값과 일치한 내용이 없을 경우 <br>
 	
   <script type="text/javascript">
-    
+      var score = 83;
+      result= '';
+     switch (true) {
+         case (parseInt(score/10)===9): result='학점은 A입니다.'
+             break;
+         case (parseInt(score/10)===8): result='학점은 B입니다.'
+             break;
+         case (parseInt(score/10)===7): result='학점은 C입니다.'
+             break;
+         case (parseInt(score/10)===6): result='학점은 D입니다.'
+             break;
+         default: result='학점은 F입니다.'
+             break;
+     }
+     console.log(result);
+
+      var score = 83;
+      let parIntScore =parseInt(score/10);
+      grade= '';
+      print= '';
+      switch (parIntScore) {
+          case 10: case 9:
+              grade = 'A';
+              break;
+          case 8:
+              grade = 'B';
+              break;
+          case 7:
+              grade = 'C';
+              break;
+          case 6:
+              grade = 'D';
+              break;
+          default:
+              grade = 'F';
+              break;
+      }
+
+      print = `해당과목의 학점은 ${grade}입니다`;
+      console.log(print);
+      /*
+      가, 나 ,다 (statement 1실행), 이외는 (statement 2 실행)
+      let str = '';
+        switch (str) {
+            if(변수 == value) => true
+          case value: // if(변수 == value) => true
+              // statement 1실행
+              break; // 블록문을 빠져 나온다.
+          default: //else문
+              //statement 2실행
+              break;
+      }
+       */
+
 	</script>
 </body>
 </html>
