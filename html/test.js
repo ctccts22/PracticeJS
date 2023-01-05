@@ -109,3 +109,11 @@ switch (score) {
         break;
 }
 console.log(result);
+
+let i2 = 2;
+let j2 = 9;
+while(j2<0) {
+    let sum2 = i2*j2;
+    console.log(`${i2}X${j2}=${sum2}`);
+    j--
+}

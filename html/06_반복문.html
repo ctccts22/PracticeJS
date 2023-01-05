@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<link rel="shortcut icon" href="#" type="image/x-icon">
@@ -7,30 +7,96 @@
 </head>
 <body>
 	<h1>반복문 while</h1>
+	- 조건식만 지정되있다. <br>
+	- 초깃값, (조건식, 증감 : 블록 범위 안)
 	<script type="text/javascript">
+		/**
+		 * 변수 = 0;
+		 * while (조건식) {
+		 *     변수 증감(반복 횟수 정해짐)
+		 * }
+		 */
+		// 1. 초기값
+		let init1 = 0;
+		// 2. while(조건식)
+		while (init1 < 5) {
+			// 3. 변수 증감
+			init1 += 1;
+
+			console.log(`${init1} 횟수`);
+		}
 		
 	</script>
 
 	<h1>반복문 do while</h1>
+	- do (코드를 먼저 실행), 2. 조건판단(반복여부) <br>
 	<script type="text/javascript">
-		
+		/**
+		 * 1. 초깃값
+		 * 변수 = 값;
+		 * 2. do {
+		 *      실행코드
+		 * 3.   } while(조건);
+		 *
+		 */
+		let init2 = 1;
+		do {
+			console.log('실행여부 확인');
+		} while (init2 < 1);
+
 	</script>
 	
   <h1>반복문 for</h1>
+	- (초깃값, 조건식, 증감 : 블록 범위 안)
 	<script type="text/javascript">
-		
+		let init3 = 0;
+
+		for (;init3<5;)  {
+			init3 += 1;
+			console.log(`${init3}횟수 for1`)
+		}
+		for (let init4 = 0;init4<5; init4 += 1)  {
+			console.log(`${init4}횟수 for2`)
+		}
+
+		//2단 출력 ~ 9단 출력
+		for (let i=2;i<=9;i+=1) {
+			for (let j=1; j<=9;j+=1) {
+				let sum = i*j;
+				console.log(`${i}X${j}=${sum}`);
+			}
+		}
 	</script>
 	
 	<h1>break</h1>
 	- 해당 키워드를 만날 경우 반복이 중지된다.
 	<script type="text/javascript">
-		
+		/* 인접하고 있는 블록을 빠져 나온다.
+		{
+			break;
+		}
+		for(반복문) 가장 가까운 for문의 블록을 빠져나온다.
+		 */
+		for(let i=0; i<10; i++) {
+			if(i === 4) {
+				console.log(`횟수: ${i+1} break`);
+				break;
+			}
+			console.log(`횟수: ${i+1}`);
+		}
 	</script>
 	
 	<h1>continue</h1>
 	- continue 키워드를 만나게 될 경우 다음 반복을 진행 (skip)
 	<script type="text/javascript">
-		
+		/* 인접하고 있는 블록을 빠져나온다.
+		   for
+		 * continue -> 아래에 위차한 코드는 실행을 하지 않고, 증감식으로 간다.
+		 */
+		for(let i=0; i<10; i++) {
+			if(i > 3) continue;
+			console.log(`횟수: ${i+1}`)
+		}
 	</script>
 
 	<h1>레이블 문</h1>
@@ -38,10 +104,16 @@
 	- {}문, 반복문, switch문에서 사용한다.<br>
 	- 프로그램의 실행순서를 제어하는데 사용한다.<br>
 	- but, 레이블 문을 사용하면 프로그램의 흐름이 복잡해져서<br>
-	&ensp;&nbsp;가독성이
-	성이 있다.
+	가독성이 저하된다.
 	<script type="text/javascript">
-	
+	outter : for(let i=0; i<10; i++) {
+			for(let j=0; j<10; j++) {
+				if(j>2) {
+					console.log('몇번 반복?');
+					break outter;
+				}
+			}
+		}
 	</script>
 </body>
 </html>

@@ -7,7 +7,6 @@
 </head>
 <body>
   <h1>while 실습</h1>
-	
 	<h2>실습1</h2>
 	실습1. 구구단 2단을 아래의 포맷방식으로 출력하시오.
 	<hr>
@@ -23,7 +22,14 @@
 	<hr>
 	
 	<script type="text/javascript">
-		
+		let i = 2;
+		let j = 1;
+		while(j<10) {
+			let sum = i*j;
+			console.log(`${i}X${j}=${sum}`)
+			j++;
+		}
+
 	</script>
 	
 	<h2>실습2</h2>
@@ -40,7 +46,13 @@
 	2 x 1 = 02<br>
 	<hr>
 	<script type="text/javascript">
-		
+		let x = 2;
+		let y = 9;
+		while(y>0) {
+			let summ = x*y;
+			console.log(`${x}X${y}=${summ}`);
+			y -= 1;
+		}
 	</script>
 	
 	<h1>for 실습</h1>
@@ -52,7 +64,12 @@
 	짝수들의 합: 2550
 	<hr>
 	<script type="text/javascript">
-		
+		let sum2 = 0;
+		for (let a=2; a<=100; a+=2) {
+			console.log(a);
+			sum2 += a;
+		}
+		console.log(sum2);
 	</script>
 	
 	<h2>실습4</h2>
@@ -64,9 +81,11 @@
 	****<br>
 	*****<br>
 	<hr>
-	
+
 	<script type="text/javascript">
-		
+	for(let n=1; n<6; n+=1) {
+		console.log('*'.repeat(n));
+	}
 
 	</script>
 
@@ -163,7 +182,13 @@
 	<hr>
 
 	<script type="text/javascript">
-		
+		for (let k=2; k<10; k++) {
+			console.log(`---${k}단---`)
+			for(let l=1; l<=10; l++){
+				let sums = k*l;
+				console.log(`${k}X${l}=${sums}`);
+			}
+		}
 	</script>
 </body>
 </html>
