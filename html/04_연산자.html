@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>연산자</title>
+	<link rel="icon" href="data:,">
+</head>
+<body>
+  <h1>연산자</h1>
+	<h2>산술연산자</h2>
+  - + * / % <br>
+	<script type="text/javascript">
+    var num1 = 2;
+    var num2 = 21;
+
+    // 모드 연산자(나머지)
+    console.log(num2 % num1);
+	</script>
+	
+	<h2>문자결합연산자</h2>
+  - '문자' + 1, 1 + '문자'  => 문자열 연결  <br>
+	<script type="text/javascript">
+		var str1 = 'ksmart';
+    var str2 = '46기';
+    var result = `${str1} ${str2}`;
+
+    console.log(str1 + str2);
+    console.log(result);
+	</script>
+
+  <h2>대입 연산자 및 복합 대입 연산자</h2>
+  - 일반적인 산술연산자를 간소화시켜 쓰는 방식
+  = += -= *= /= %=
+	<script type="text/javascript">
+    var num3 = 10;
+    var num4 = 12;
+
+    var num3 = num3 + 10;
+    num4 += 10;
+    console.log(num3, num4);
+
+    //실습1. num5의 값은 100이고, 복합대입연산자를 활용해서 num5의 값을 50으로 할당해고 출력하시오.
+    var num5 = 100;
+    num5 -= 50;
+    console.log(num5);
+
+
+  </script>
+
+  <h2>증감연산자</h2>
+  ++ -- <br>
+	<script type="text/javascript">
+    var num = 5;
+    var result = 0;
+
+    // 선증가, 후할당
+    result = ++num;
+    console.log(result, num);
+    // 선감소, 후할당
+    result = --num;
+    console.log(result, num);
+    // 선할당, 후증가
+    result = num++;
+    console.log(result, num);
+    // 선할당, 후감소
+    result = num--;
+    console.log(result, num);
+	</script>
+
+  <h2>비교연산자</h2>
+  - 두개의 데이터를 비교하여 결괏값을 논리형으로 받는다.
+  - ==(값만 비교), ===(값 타입 모두 비교), !=, !==
+  <br>
+  <!-- - >=, <=, >, < -->
+  <script type="text/javascript">
+    var num1 = 1;
+    var str1= '1';
+
+    console.log(num1 == str1);
+    console.log(num1 === str1);
+
+    var num2 = 2;
+    console.log(num1 > num2);
+    console.log(num1 < num2);
+    console.log(num1 >= str1);
+    console.log(num1 <= str1);
+  </script>
+
+  <h2>논리연산자</h2>
+	- 2개 이상의 결괏값 혹은 비교연산자를 동시에 비교 <br>
+	- and -> 2개 이상의 비교값이 모두 참일 경우 참  <br>
+	- or -> 2개 이상 중 하나라도 참이면 참  <br>
+	- not -> 결괏값의 반대
+	
+	<script type="text/javascript">
+    var isBoolean = (10 > 5) || (10 < 5); 
+    console.log(isBoolean);
+    isBoolean = (10 > 5) && (10 < 5);
+    console.log(isBoolean);
+	</script>
+	
+	<h2>삼항조건연산자</h2>
+	- 조건식을 비교하여 참일 경우와 거짓일 경우 판별하여 각각의 값을 반환
+	<script type="text/javascript">
+		var num1 = 10;
+    var num2 = num1;
+    num2 /= 2;
+    var result = (num1 == num2)? 'true' : 'false';
+    console.log(result);
+
+    var result = (num1 == num2)? 'true' : (num1 > num2) ? 'true' : 'false';
+    console.log(result);
+
+
+    // 실습1. 회원로그인시 회원아이디 값이 일치할 경우 불일치 할경우, 회원 비밀번호 값이 일치할 경우, 
+    // 불일치할 경우 삼항연산자를 활용해서 다음과 같이 출력하시오.
+    
+    //1. (true)id001 님이 로그인 하셨습니다.
+    //2. (false) 등록된 회원 정보가 없습니다.
+    var paramId = 'id001';
+    var paramPw = 'pw001';
+
+    var memberId = 'id001';
+    var memberPw = 'pw002';
+
+    var result =(paramId == memberId && paramPw == memberPw)? '로그인에 성공했습니다.' 
+    : (paramPw != memberPw)? '비밀번호가일치하지 않습니다(등록된 회원 정보가 없습니다).' : '로그인에 성공했습니다.'
+    console.log(result);
+	</script>
+
+</body>
+</html>

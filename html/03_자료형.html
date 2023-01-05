@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>자료형</title>
+	<link rel="icon" href="data:,">
+</head>
+<body>
+  <h1>자료형</h1>
+	- 값에 의하여 자료형이 결정된다.
+
+	<h2>typeof 자료형 확인</h2>
+	- typeof 키워드로 자료형을 확인 할 수 있다.
+	- parser 함수로 자료형을 변환 할 수 있다.
+
+	<h2>문자형</h2>
+	<script type="text/javascript">
+    var str1 = '홍길동';
+    console.log(typeof str1);
+    var str2 = '개발자';
+    console.log(typeof str2);
+    var str3 = '46';
+    console.log(typeof str3);
+    //문자열 연결
+    console.log(str2 +' '+ str3 +' '+ str1);
+    console.log(`${str2} ${str3}기 ${str1}`);
+	</script>
+	
+	<h2>숫자형</h2>
+	<script type="text/javascript">
+		var num1 = 1000;
+    var num2 = '2000';
+
+    //숫자 + 문자열 >> 10002000
+    console.log(num1 + num2);
+    //숫자 + 문자열 >> 숫자형을 값을 반환하려면
+    //문자열을 형변환 후 표현식을 작성
+    console.log(num1 + Number(num2));
+
+    // 숫자형의 값은 실수
+    var num3 = 10/3;
+    var num4 = 10/5;
+    console.log(num3);
+    console.log(num4);
+
+    //숫자형을 정수로~
+    //함수를 이용 => 1. 함수, 2. 내장객체의 함수
+    // 1 parseInt()
+    // 2 Math.floor()
+    // parseInt() vs Math.floor()
+    // 양의 정수 차이 없음
+    console.log(parseInt(num3));
+    console.log(Math.floor(num3));
+    // 음의 실수 일경우
+    var num5 = -10/3;
+    console.log(parseInt(num5));
+    console.log(Math.floor(num5));
+
+	</script>
+	
+	<h2>논리형</h2>
+	- 논리형은 true 혹은 false 값이 담긴다.
+	<script type="text/javascript">
+    var isBoolean = true;
+    isBoolean = false;
+    console.log(Boolean(0), '숫자 0은 false'); 
+    console.log(Boolean(1), '숫자 1은 true');
+    console.log(Boolean(''), '숫자 0은 false');
+    console.log(Boolean('1'), '숫자 0은 true');
+
+    if(isBoolean) {
+      console.log('실행 되나?');
+    } else {
+      console.log("실행 안되나?");
+    }
+	</script>
+	
+	<h2>null</h2>
+  -변수는 존재하나, null로 할당된 상태 <br>
+  - null : '메모리에 할당된 공간을 더이상 참조하지 않겠다' 라는의미
+	<script type="text/javascript">
+    var nullx1 = null;
+    console.log(typeof nullx1, 'nullx1의 값');
+	</script>
+	
+	<h2>undefined</h2>
+  - 변수는 존재하나(메모리에 할당된 공간), 
+  초기값이 자바스크립트 엔진에 의해 undefined 값을 할당한 상태
+	<script type="text/javascript">
+    var undefinedx1 = undefined;
+    console.log(typeof undefinedx1, 'undefiend 의 값');
+	</script>
+	
+</body>
+</html>

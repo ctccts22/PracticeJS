@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+  <title>변수</title>
+	<link rel="icon" href="data:,">
+</head>
+<body>
+  <h1>변수</h1>
+	- 변할 수 있는 데이터를 메모리 공간에 저장 <br>
+	- var 혹은 let 키워드로 변수 선언한다 상수는 const로 선언 <br>
+	- 자바스크립트는 저장된 값에 의해 자료형이 결정된다. <br>
+	- 자료형의 기본은 문자형, 숫자형, 논리형이 있다. <br>
+	- 변수 선언 후 기본값은 undefined 이다. <br>
+	- 변수명(식별자)은 예약어를 사용 할 수 없다. <br>
+	  (예약어 -> 프로그램에서 사용하고 있는 토큰(단어)) <br>
+	- 변수명(식별자)는 _, $의 특수기호만 제외한 나머지는 사용할 수 없다. <br>
+	- 변수명(식별자) 한글로 사용 금지 <br>
+	- 상수 선언 키워드는 const 이다. <br>
+	- 자바스크립트의 자료형 확인 키워드는 typeof로 한다. <br>
+	
+	<h2>var 와 let</h2>
+	<script type="text/javascript">
+    /**
+     * 변수 선언 시 키워드 : var, let, const
+     * 변수 재할당 가능 : var, let
+     * 변수를 재선언이 가능 : var
+     * 변수 재할당 재선언 불가 : const
+     */
+    var title = '아바타2';
+    var title = '아바타';
+    console.log(title, 'var 변수 선언시 재할당, 재선언 가능');
+
+    let name = '조수봉';
+    name = '황경영';
+    console.log(name, 'let 변수 선언시 재할당 가능');
+
+    const course = 'ICT융합 자바스프링 개발자 양성과정';
+    // course = '123';
+    console.log(course, 'const 변수 선언시 재할당, 재선언 불가');
+
+    // typeof 연산자 활용하여 변수의 자료형 확인
+    console.log(typeof title, '변수 title의 자료형 확인');
+
+    name = 1;
+    console.log(typeof name, '변수 name의 자료형 확인');
+
+    console.log(typeof course, '변수 course의 자료형 확인');
+
+	</script>
+	
+	<h2>var, function (hoisting)호이스팅</h2>
+	- 사전적인 의미 : 끌어 올리다.
+	- 적용 대상 : var, function	
+	<script type="text/javascript">
+    console.log(memberName);
+		var memberName = '홍길동';
+    console.log(memberName);
+
+    // let, const로 선언하더라도 호이스팅의 대상이 된다.
+    // console.log(memberLevel);
+    let memberLevel = '관리자';
+    console.log(memberLevel);
+
+
+    //
+    var memberId = 'id001';
+    let globalVariable = '전역변수';
+    //let은 지역변수가 더 우위에 있다.
+    {
+      console.log(memberId);
+      var memberId = 'id002';
+      console.log(memberId);
+
+      let globalVariable = '지역변수';
+      console.log(globalVariable);
+
+      let localVariable = '지역변수';
+    }
+      // console.log(localVariable); 
+      //참조 불가능
+
+      // 함수문 위에서도 호출 가능하나 잘 사용하지는 않는다.
+      print();
+      function print() {
+        console.log('화면 출력');
+      }
+      print();
+
+      
+	</script>
+	<h2>변수 선언 방식</h2>
+	<script type="text/javascript">
+		var num, str, str2 = '홍길동';
+		// str2에만 할당이 된다.
+    console.log(num,str,str2);
+	</script>
+	
+</body>
+</html>
