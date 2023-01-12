@@ -65,11 +65,12 @@
 	<hr>
 	<script type="text/javascript">
 		let sum2 = 0;
-		for (let a=2; a<=100; a+=2) {
+		for (let a=2; a<=100; a+=1) {
 			console.log(a);
 			sum2 += a;
 		}
 		console.log(sum2);
+
 	</script>
 	
 	<h2>실습4</h2>
@@ -86,6 +87,7 @@
 	for(let n=1; n<6; n+=1) {
 		console.log('*'.repeat(n));
 	}
+
 
 	</script>
 
@@ -182,13 +184,35 @@
 	<hr>
 
 	<script type="text/javascript">
+
 		for (let k=2; k<10; k++) {
 			console.log(`---${k}단---`)
-			for(let l=1; l<=10; l++){
+			for(let l=1; l<=9; l++){
 				let sums = k*l;
 				console.log(`${k}X${l}=${sums}`);
 			}
 		}
 	</script>
+ 	 <script type="text/javascript">
+		for(let times=2; times <10; times +=1) {
+			let printTable = `====${times}단====`;
+			for(let times2=1; times<=9; times2++){
+				let sums2 = times*times2;
+				if (sums2 < 10) {
+					printTable += `${times} X ${times2} = ${sums2}
+					\n`;
+				} else {
+					printTable += `${times} X ${times2} = ${sums2}
+					\n`;
+				}
+			}
+			console.log(printTable)
+		}
+	</script>
+
+
+<script type="text/javascript">
+
+</script>
 </body>
 </html>
