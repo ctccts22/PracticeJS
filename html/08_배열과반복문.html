@@ -14,13 +14,27 @@
 		
         /* 반복문을 활용해서 배열요소 접근 */
         /* for 문 i는 배열요소의 인덱스 */
-        
+        for(var i=0;i<arr.length; i++) {
+            var print = `arr의 배열 수는 ${i} 입니다.`;
+            console.log(print);
+        }
         /* for of 문  for(변수 of 배열) */
-        
-
+        for(let name of arr) {
+            console.log(`배열를 순회하면서 요소 값 반환: ${name}`);
+        }
         /*문제, for of 문을 활용해서 인덱스의 번호와 함께 데이터를 추출하시오. */
-        
+        let index= 0;
+        for(let name of arr) {
+            let print = `arr 배열의 ${index}번째 요소: ${arr[index]}`;;
+            console.log(print);
+            index++;
+        }
+        console.log(arr);
         /*for in 문  for(변수 in 배열, 객체) */
+        for(let key in arr) {
+            console.log(typeof key);
+            console.log(`arr 배열의 ${key}번째 요소: ${arr[key]}`);
+        }
        
 	</script>
 	

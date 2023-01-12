@@ -13,15 +13,58 @@
 	실습. 아래의 배열의 원소에 접근하여 콘솔에 차례대로 출력 하도록 하시오.
 	<script type="text/javascript">
 		var arr01 = ['손흥민', '김민재', '황희찬', '황의조', '이강인', '김승규'];
-
+		for(var i=0; i<arr01.length; i++) {
+			var print = `${arr01}`;
+			console.log(print);
+		}
 	</script>
 
 	<h2>실습2</h2>
 	실습. 아래의 배열의 원소에 접근하여 이름만 콘솔에 차례대로 출력 하도록 하시오.
 	ex) 손흥민, 황희찬, 이강인
 	<script type="text/javascript">
-		var arr01 = [4, '손흥민', 1, '황희찬', 2, '이강인', '김승규', 3, undefined, null];
-		
+		var arr01 = [4, '손흥민', 1, '황희찬', 2, '이강인', '김승규', 3, undefined, null, true];
+		console.log(typeof '손흥민', '<<<손흥민 타입확인');
+		console.log(typeof null, '<<<null 타입확인');
+		let resultName = '';
+		for (let i=0; i<arr01.length; i++) {
+			if (typeof arr01[i] == 'string') resultName += `${arr01[i] + ','}
+			`;
+		}
+		for (let i=0; i<arr01.length; i++) {
+			if (typeof arr01[i] == 'string') {
+				if (resultName.length > 0) {
+					resultName += `, ${arr01[i]}`;
+				} else {
+					resultName += arr01[i];
+				}
+			}
+		}
+		console.log(resultName);
+
+		const resultArr = [];
+		for(let ele of arr01) {
+			if(typeof ele == 'string') {
+				resultArr.push(ele);
+				if (resultArr.length > 0) {
+					resultName += `, ${resultArr[resultArr.length-1]}`;
+				} else {
+					resultName += resultArr[resultArr.length-1];
+				}
+			}
+		}
+		console.log(resultArr);
+		// console.log(resultArr.join(' , '));
+
+		let resultName2 = '';
+		for (let i = 0; i < resultArr.length; i++) {
+			if (i !== 0) {
+				resultName2 += `, ${resultArr[resultArr.length-1]}`;
+			} else {
+				resultName2 += resultArr[i];
+			}
+		}
+		console.log(resultName2);
 	</script>
 
 	<h2>실습3</h2>
@@ -30,7 +73,8 @@
 	<script type="text/javascript">
 		var nArr = [13,15,20,22,35,50,70,99];
 		var evenArray = [];
-		
+
+		let evenSum = '';
 	</script>
 
 	<h2>실습4</h2>
