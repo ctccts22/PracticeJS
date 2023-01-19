@@ -15,7 +15,17 @@
 	myObj의 arr 속성 배열에 '홍길동', '유관순', '이순신' 이라는 문자열이
 	차례대로 담겼다. 위의 문구처럼 문자열이 담길 수 있도록 메서드 내의 코드를 완성하시오.
 	<script type="text/javascript">
-		
+		const myObj = {
+			arr: [],
+			addArr(name) {
+				this.arr.push(name)
+			}
+		}
+		myObj.addArr('홍길동');
+		myObj.addArr('유관순');
+		myObj.addArr('이순신');
+		console.log(myObj.arr);
+
 	</script>
 
 	<h2>실습2</h2>
@@ -23,20 +33,24 @@
 	위 문구대로 실행될 수 있도록 코드를 완성하고 결괏값을 출력하시오.
 	<script type="text/javascript">
 		var car = {
-									color : 'red',
-									model : 'K5',
-									moveHistory : [],
-									totalMove : 0,
-									getTotalMove : function(){
-												
-									},
-									move(){
-													
-									}
+			color: 'red',
+			model: 'K5',
+			moveHistory: [],
+			totalMove: 0,
+			getTotalMove: function(){
+				return this.totalMove;
+			},
+			move(distance) {
+				this.moveHistory.push(distance);
+				this.totalMove += distance;
+				return this;
+			}
 		}
 		car.move(50).move(100).move(70);
-		console.log(`주행내역: `);
-		console.log(`총 주행거리:  km`);
+		console.log(`color: ${car.color}`);
+		console.log(`model: ${car.model}`);
+		console.log(`moveHistory: ${car.moveHistory}`);
+		console.log(`getTotalMove: ${car.getTotalMove()} km`);
 	</script>
 
 	
@@ -45,10 +59,16 @@
 	평균값이 리턴되었다. 위 문구대로 실행될 수 있도록 코드를 완성하고 결괏값을 출력하시오.
 	<script type="text/javascript">
 		var nObj = {
-				 nArr : [10,20,30,40,50]
+			nArr: [10,20,30,40,50],
+			totalValue: 0,
+			getTotalAvg() {
+				for (var i = 0; i < this.nArr.length; i++) {
+					this.totalValue += this.nArr[i];
+				}
+				return this.totalValue / this.nArr.length;
+			}
 		}
-		console.log(nObj.getAvg());
-	
+		console.log(nObj.getTotalAvg());
 	</script>
 	
 	<h3>실습4</h3>
@@ -62,7 +82,30 @@
 				{studentName : '유관순', score : 80},
 				{studentName : '고길동', score : 70},
 				{studentName : '홍길순', score : 80}
-			]
+			],
+
+			getMaxScoreStudent() {
+				var maxScore = 0;
+
+				for (var i = 0; i < this.score.length; i++) {
+					if (this.score[i].score > maxScore) {
+						maxScore = this.score[i].score;
+					}
+				}
+				let result = '';
+				let isFirstElement = true;
+				for(let studentInfo of this.score) {
+					if (maxScore === studentInfo.score) {
+						if(isFirstElement) {
+							result += studentInfo.studentName;
+							isFirstElement= false;
+							continue;
+						}
+						result += `, ${studentInfo.studentName}`;
+					}
+				}
+				return result + maxScore;
+			}
 		};
 		console.log(studentObj.getMaxScoreStudent());
 	
@@ -72,12 +115,23 @@
 	실습. 아래의 실행코드에서 에러가 발생하지 않도록 메서드 내의 코드를 완성하시오.
 	<script type="text/javascript">
 		var nObj = {
-				 nArr : []
+				 nArr : [],
+			     addN(num) {
+						 this.nArr.push(num);
+						 return this;
+				},
+				totalValue: 0,
+				sum : function () {
+					 for (var i=0; i<this.nArr.length; i++) {
+						 this.totalValue += this.nArr[i];
+					 }
+					 return this.totalValue;
+				}
 		}
 		
 		var n = nObj.addN(10).addN(10).addN(10).addN(10).addN(10).sum();
 		
-		console.log(n, '50 결괏값');
+		console.log(`${nObj.totalValue}`);
 		
 	</script>
 	<h2>실습6</h2>

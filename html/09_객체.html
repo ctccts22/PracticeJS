@@ -46,6 +46,7 @@
                 return this.name;
             }
         }
+        console.log({arr1});
         console.log({obj3});
 
 
@@ -55,16 +56,130 @@
     - 속성에 접근하였다면 값을 가지고 오거나 대입 할 수 있다. <br>
     - 메서드는 실행 할 수 있다. <br>
     <script type="text/javascript">
-       
-    </script>
+       console.log('obj3 객체의 name 속성 값 :',obj3.name);
+       console.log('obj3 객체의 getName() 매소드 호출 :',obj3.getName());
+       /**
+        * 객체 (속성, 메서드)
+        * 키 : 값 => 키 금지 예시 1. 숫자, 2. 기호
+        */
+       const obj4 = {
+           course : 'ksmart46',
+           subject : 'javascript',
+           'subject-grade' : '입문',
+           46 : '한국스마트정보교육원 개발자 기수',
+           getCourse : function () {
+               return this.course;
+           },
+           getSubject() {
+               return this.subject;
+           },
+           setSubject(subject) {
+               this.subject = subject;
+           }
+       }
+       let course = obj4.course;
+       let level = obj4['subject-grade'];
+       let identified = obj4['46'];
+       obj4.studentName = '홍길동';
 
+       console.log({obj4});
+       obj4.setSubject('database');
+       console.log({obj4});
+
+       //for in
+       console.log('subject' in obj4);
+       // = for(let key in obj4);
+       obj4.getStudentName = function () {
+           return this.studentName;
+       }
+
+    </script>
     <h2>체이닝 기법</h2>
     - 도트 연산자를 활용하여 객체 멤버에 접근하는 방법 <br>
     - 마지막에 호출된 메서드나 속성이 객체라면 도트 연산자를 활용하여 마지막 도달된 
     객체 멤버에 접근 할 수 있다.
     
     <script type="text/javascript">
-        
+        const obj5 = {
+            storeName : '한국스마트서점',
+            bookNameArr : ['이것이 자바다', '10분 sql', '토비의 스프링',
+                '클린코드', '이펙티브 자바', '자바스크립트 딥다이브'],
+            bookInfoArr : [
+                {bookName : '이것이 자바다', price : 30000},
+                {bookName : '10분 sql', price : 20000},
+                {bookName : '토비의 스프링', price : 60000},
+                {bookName : '클린코드', price : 30000},
+                {bookName : '이펙티브 자바', price : 30000},
+                {bookName : '자바스크립트 딥다이브', price :
+                        45000},
+            ]
+        }
+        // 실습 1. 한국 스마트 서점에 이펙티브 자바책이 존재하면 '이펙티브 자바 책이 존재합니다 출력
+        // let findBookName = '이펙티브 자바';
+        // findBookName = '자바의 정석';
+        // let isExist = false;
+        // const bookList = obj5.bookNameArr;
+        //
+        // for (let bookName of bookList) {
+        //     if (findBookName === bookName) {
+        //         isExist = true;
+        //         break;
+        //     }
+        // }
+        // if (isExist) {
+        //     console.log(`${findBookName} 책이 있습니다.`)
+        // }else {
+        //     console.log(`책이 없습니다.`)
+        // }
+
+    // 실습 2. 이것이 자바다와 이펙티브 자바를 구매 총 가격 6만원 출력
+        let barcode1 = '이펙티브자바';
+        let barcode2 = '이것이 자바다';
+
+        const purchaseList = [];
+        let priceTotal = 0;
+
+        const bookList2 = obj5.bookInfoArr;
+
+        for (let bookInfo of bookList2) {
+            let checkBookName = bookInfo.bookName;
+            if (barcode1 === checkBookName) {
+                purchaseList.push(bookInfo);
+            }
+            if (barcode2 === checkBookName) {
+                purchaseList.push(bookInfo);
+            }
+        }
+        console.log(purchaseList);
+        for (let purchaseInfo of purchaseList) {
+            let price = purchaseInfo.price;
+            priceTotal += price;
+        }
+        console.log(`지부하실 총 금액은 ${priceTotal} 입니다`);
+
+
+        /*
+        This code defines an object called obj5 that contains information about a bookstore,
+        including the store name and an array of book names and an array of book information (name and price).
+
+It then creates two variables, barcode1 and barcode2 and assigns them the values '이펙티브자바' and '이것이 자바다' respectively.
+
+The code then creates an empty array called purchaseList and a variable called priceTotal that is initialized to 0.
+
+It then uses a for-of loop to iterate through the bookInfoArr array in the obj5 object.
+For each element in the array (which is an object containing information about a book),
+it assigns the book name to a variable checkBookName and compares it with the barcode1 and barcode2 variables.
+If they match, the book information is added to the purchaseList array.
+
+After that, the code uses another for-of loop to iterate through the purchaseList array.
+For each element in the array (which is an object containing information about a book),
+it accesses the price and adds it to the priceTotal variable.
+
+Finally, the code uses console.log to log the purchaseList array and the total price to the console.
+
+Overall, this code is checking if the books with the given barcodes are available in the bookstore,
+adding the book information to a purchase list and calculating the total price of the purchase list.
+         */
     </script>
     
     <h1>객체 this</h1>
@@ -73,8 +188,41 @@
 	- this -> 객체 자신
 	
 	<script type="text/javascript">
-		
-		
+        const ksmartStudentObj = {
+            team : 'ks4team',
+            members : [],
+            joinMember(memberName) {
+                this.members.push(memberName);
+                return this;
+            }
+        }
+        ksmartStudentObj.joinMember('이바른').joinMember('백지은')
+            .joinMember('고현지').joinMember('김귀림').joinMember('김가람');
+        //method chaining pattern
+
+        console.log(ksmartStudentObj.members);
+
+        /*
+        This code defines an object called ksmartStudentObj that contains information about a team called "ks4team". It has two properties:
+
+team: a string containing the team name
+members: an empty array that will hold the names of the team members
+
+The ksmartStudentObj object also has a method called joinMember() which accepts a string parameter called memberName.
+The method uses the push() method to add the memberName to the members array.
+
+After that, the code uses a method chaining pattern where multiple method calls are chained together.
+The joinMember() method is called 5 times and the names passed are '이바른', '백지은', '고현지', '김귀림', '김가람' respectively.
+These names are added to the members array of the ksmartStudentObj object.
+
+Finally, the code uses console.log() to log the members array to the console.
+This will print the names of all the members in the array.
+
+In summary, this code defines an object with properties and methods that represent a team and its members.
+The members are added to the object using the joinMember() method and the names of the members are printed to the console.
+         */
 	</script>
+
+
 </body>
 </html>
