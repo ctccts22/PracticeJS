@@ -73,29 +73,71 @@
 	<script type="text/javascript">
 		var nArr = [13,15,20,22,35,50,70,99];
 		var evenArray = [];
-
-		let evenSum = '';
+		let resultSum = 0;
+		for (let digit of nArr) {
+			if(digit % 2 ==0) evenArray.push(digit);
+		}
+		for(let even of evenArray) {
+			resultSum += even;
+		}
+		console.log('짝수만 추출한 배열', evenArray);
+		console.log(`추출한 짝수의 합계 : ${resultSum}`);
 	</script>
 
 	<h2>실습4</h2>
 	실습. 아래의 배열에 학생의 점수가 담겨 있다. 학생의 평균 점수를 구하시오.
 	<h2>실습5</h2>
 	실습. 아래의 배열에 학생의 점수가 담겨 있다. 60점 이상인 학생 수를 구하시오.
-	<script type="text/javascript">
-					
+<script type="text/javascript">
+		 var scoreArr = [60,70,55,60,80,70];
+		 var resultScoreArr = [];
+		 let resultScore = 0;
+		 let z =0;
+		 for(let x of scoreArr) {
+		 	resultScoreArr.push(x);
+		 }
+		 for(let y of resultScoreArr) {
+		 	resultScore += y;
+		 	z = resultScore/scoreArr.length;
+		 }
+		 console.log(resultScoreArr);
+		 console.log(z.toFixed(2));
+
+	<!--	var scoreArr = [60,70,55,60,80,70];-->
+	<!--	let total = 0;-->
+	<!--	let cnt = 0;-->
+	<!--	let avg = 0;-->
+
+	<!--	for(let score of nArr01) {-->
+	<!--		total += score;-->
+	<!--		if (score >= 60) cnt += 1;-->
+	<!--	}-->
+	<!--	avg = (total/nArr01.length).toFixed(2);-->
+	<!--	console.log(avg);-->
+	<!--	console.log(cnt);-->
 	</script>
 
 	<h2>실습6</h2>
 	실습. 0~1000까지 홀수인 숫자만 배열에 담으시오. 홀수들의 합산을 구하시오.
-	<script type="text/javascript">
-		var nArr01 = [];
-		
-	</script>
+<!--	<script type="text/javascript">-->
+<!--		const nArr01 = [];-->
+<!--		let oddTotal = 0;-->
+<!--		for (let odd = 0; odd <= 1000; odd += 1) {-->
+<!--			if (odd%=1) {-->
+<!--				nArr01.push(odd);-->
+<!--				oddTotal+=i;-->
+<!--			}-->
+<!--		}-->
+<!--			console.log(nArr01);-->
+<!--			console.log(oddTotal);-->
+<!--	</script>-->
 
 	<h2>실습7</h2>
 	실습. 아래의 배열에 학생의 명이 담겨있다. 3행 3열로 학생을 배치하도록 하시오.<br><br>
 	<script type="text/javascript">
 		/*
+				1월  19일 약속 ( colSize 열)
+				let colSize = 7;
 			 ------------------------------------
 			 |    1조    |    2조    |    3조    |
 			 ------------------------------------
@@ -105,23 +147,70 @@
 			 ------------------------------------
 			 | 에릭다이어 | 벤데이비스 |  산체스   |
 			 ------------------------------------
-			 
+			 |  손흥민    |          미정        |
+			 ------------------------------------
+
 		*/
 		var student = [
-				'헤리케인', '히샬리송', '모우라', '페리시치',
-				'세세뇽', '요리스', '에릭다이어', '벤데이비스',
-				'산체스'
-				];
+			'헤리케인', '히샬리송', '모우라', '페리시치',
+			'세세뇽', '요리스', '에릭다이어', '벤데이비스',
+			'산체스', '손흥민'
+		];
+		/*
+        var html = '<table border="1" style="width:400px;">';
+        html +='	<thead>';
+        html +='		<tr>';
+        html +='			<th style="width:calc(400px/3)">1조</th>';
+        html +='			<th style="width:calc(400px/3)">2조</th>';
+        html +='			<th style="width:calc(400px/3)">3조</th>';
+        html +='		</tr>';
+        html +='	</thead>';
+        html +='  <tbody style="text-align:center;">';
+        html +='		<tr>';
+        html +=`			<td>${student[0]}</td>`;
+        html +=`			<td>${student[1]}</td>`;
+        html +=`			<td>${student[2]}</td>`;
+        html +='		</tr>';
+        html +='		<tr>';
+        html +=`			<td>${student[3]}</td>`;
+        html +=`			<td>${student[4]}</td>`;
+        html +=`			<td>${student[5]}</td>`;
+        html +='		</tr>';
+        html +='		<tr>';
+        html +=`			<td>${student[6]}</td>`;
+        html +=`			<td>${student[7]}</td>`;
+        html +=`			<td>${student[8]}</td>`;
+        html +='		</tr>';
+        html +='  </tbody>';
+      html +='</table>';
+        */
 		var html = '<table border="1" style="width:400px;">';
-				html +='	<thead>';
-				html +='		<tr>';
-				html +='			<th style="width:calc(400px/3)">1조</th>';
-				html +='			<th style="width:calc(400px/3)">2조</th>';
-				html +='			<th style="width:calc(400px/3)">3조</th>';
-				html +='		</tr>';
-				html +='	</thead>';
-			  html +='</table>';
+		html +='	<thead>';
+		html +='		<tr>';
+		html +='			<th style="width:calc(400px/3)">1조</th>';
+		html +='			<th style="width:calc(400px/3)">2조</th>';
+		html +='			<th style="width:calc(400px/3)">3조</th>';
+		html +='		</tr>';
+		html +='	</thead>';
+		html +='  <tbody style="text-align:center;">';
+		html +='		<tr>';
+		html +=`			<td>${student[0]}</td>`;
+		html +=`			<td>${student[1]}</td>`;
+		html +=`			<td>${student[2]}</td>`;
+		html +='		</tr>';
+		html +='		<tr>';
+		html +=`			<td>${student[3]}</td>`;
+		html +=`			<td>${student[4]}</td>`;
+		html +=`			<td>${student[5]}</td>`;
+		html +='		</tr>';
+		html +='		<tr>';
+		html +=`			<td>${student[6]}</td>`;
+		html +=`			<td>${student[7]}</td>`;
+		html +=`			<td>${student[8]}</td>`;
+		html +='		</tr>';
 		document.write(html);
+
+
 	</script>
 
 	<h2>실습8</h2>
@@ -130,9 +219,17 @@
 	최고의 점수를 받은 학생의 명을 출력하도록 하시오.
 	<h2>최소의 점수를 받은 학생의 명을 출력하시오.</h2>
 	<script type="text/javascript">
+
 		var scoreArr = [70,60,70,80,55,80];
 		var studentArr = ['A', 'B', 'C', 'D', 'E','F'];
-		
+		var highScore = 0;
+		var i
+		for (i=0; i<scoreArr.length; i++) {
+			if (scoreArr[i] >= 80) {
+				console.log(studentArr[3] + console.log(studentArr[F]));
+			}
+		}
+
 	</script>
 	
 </body>

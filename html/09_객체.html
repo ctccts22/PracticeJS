@@ -11,8 +11,17 @@
     <h1>객체 참조 변수</h1>
 	- 객체의 주소를 담은 변수
 	<script type="text/javascript">
-		
+		// call by value
+        let num1 = 10;
+        let num2 = num1; // 값에 의한 복사
+        num2 = 20;
+        console.log(`num1:${num1}, num2: ${num2}`);
 
+        //call by reference
+        const arr1 = [100]; // 배열의 주소를 의미: arr1 -> 참조변수
+        const arr2 = arr1; //주소에 의한 복사(얕은 복사)
+        arr2[0] = 200;
+        console.log(`arr1[0]: ${arr1[0]}, arr2[0]: ${arr2[0]}`)
 	</script>
 
     <h1>객체</h1>
@@ -24,7 +33,21 @@
 
     <h2>객체 선언</h2>
     <script type="text/javascript">
-        
+        const obj1 = {}; // {} 객체선언
+        const obj2 = new Object(); // new 연산자를 사용해서 객체생성
+        //키 : 문자열 기준 -> 카멜 표기법, keyword(예약어) 금지
+        //특수 문자를 -  or _ 를 키로 표시기 '' 문자열로 선언
+        //숫자는 키로 사용하지 않는다.
+        const obj3 = {
+            name : '홍길동', // 속성
+            'level-name' : '관리자',
+            getName : function () { //메서드 : 객체 안의 함수
+                console.log('obj3의 name속성 값' + this.name);
+                return this.name;
+            }
+        }
+        console.log({obj3});
+
 
     </script>
 
